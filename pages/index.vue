@@ -1,40 +1,29 @@
 <template>
   <div class="container">
-    <div>
-      <Logo />
-      <h1 class="title">
-        kasa
-      </h1>
-      <div class="links">
-        <a
-          href="https://nuxtjs.org/"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="button--green"
-        >
-          Documentation
-        </a>
-        <a
-          href="https://github.com/nuxt/nuxt.js"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="button--grey"
-        >
-          GitHub
-        </a>
-      </div>
-    </div>
+   <b-card bg-variant="light" text-variant="dark" title="Find Your Reservation">
+     <b-card-text>
+      You can search by providing the city or the confirmation code of your reservation
+     </b-card-text>
+      <b-form-input list="input-list" id="input-with-list"></b-form-input>
+      <b-form-datalist id="input-list" :options="options"></b-form-datalist>
+   </b-card>
   </div>
 </template>
 
 <script>
-export default {}
+export default {  
+  data() {
+      return {
+        options: ['San Francisco, CA', 'Los Angeles, CA', 'New York City, NY']
+      }
+  }
+}
 </script>
 
 <style>
 .container {
   margin: 0 auto;
-  min-height: 100vh;
+  min-height: 50vh;
   display: flex;
   justify-content: center;
   align-items: center;
