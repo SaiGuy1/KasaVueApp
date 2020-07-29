@@ -1,6 +1,6 @@
 <template>
   <div>
-      <h1>this is the detailed view of given reservation</h1>
+      <h1>this is the detailed view of given</h1>
   </div>
 </template>
 
