@@ -4,20 +4,14 @@
      <b-card-text>
       You can search by providing the city or the confirmation code of your reservation
      </b-card-text>
-      <b-form-input list="input-list" id="input-with-list"></b-form-input>
-      <b-form-datalist id="input-list" :options="options"></b-form-datalist>
+     <ReservationFinder />
    </b-card>
   </div>
 </template>
 
 <script>
-export default {  
-  data() {
-      return {
-        options: ['San Francisco, CA', 'Los Angeles, CA', 'New York City, NY']
-      }
-  }
-}
+  import ReservationFinder from "../components/ReservationFinder"
+  export default {}
 </script>
 
 <style>
