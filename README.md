@@ -1,6 +1,6 @@
 # Kasa Vue App
 # Hosted at https://keen-rosalind-ab95fb.netlify.app
-# WORKS BEST ON LOCALHOST - IF USING HOSTED SITE TO VIEW, CLICK ON 'ABOUT' in FOOTER TO COME BACK TO INDEX PAGE. DID SOME LAST MINUTE RESTRUCTURING so nav links won't work properly
+# WORKS BEST ON LOCALHOST - IF USING HOSTED SITE TO VIEW, CLICK ON 'ABOUT' in FOOTER TO COME BACK TO INDEX PAGE. 
 
 ## Objectives (Functionality over Design)
 
