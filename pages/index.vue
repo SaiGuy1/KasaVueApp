@@ -12,6 +12,18 @@
 
 <script>
   import ReservationFinder from "../components/ReservationFinder"
+
+  // original check for whether service worker is supported in current browser
+  if('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker
+      .register('../sw.js')
+      .then(reg => console.log('Service Worker: registered'))
+      .catch(err => console.log(err))
+    })
+    // console.log('Service Worker Supported')
+  }
+
   export default {}
 </script>
 
