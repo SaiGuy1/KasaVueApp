@@ -5,6 +5,7 @@
       You can search by providing the city or the confirmation code of your reservation
      </b-card-text>
      <ReservationFinder />
+     
    </b-card>
   </div>
 </template>
@@ -37,20 +38,20 @@
     sans-serif;
   display: block;
   font-weight: 300;
-  font-size: 100px;
+  font-size: 100rem;
   color: #35495e;
-  letter-spacing: 1px;
+  letter-spacing: 1em;
 }
 
 .subtitle {
   font-weight: 300;
-  font-size: 42px;
+  font-size: 42rem;
   color: #526488;
-  word-spacing: 5px;
-  padding-bottom: 15px;
+  word-spacing: 5em;
+  padding-bottom: 15em;
 }
 
 .links {
-  padding-top: 15px;
+  padding-top: 15em;
 }
 </style>

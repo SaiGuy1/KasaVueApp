@@ -1,6 +1,13 @@
 <template>
   <div>
-      <h1>this is the detailed view of given reservation</h1>
+         <b-card bg-variant="light" text-variant="dark" title="Find Your Reservation">
+     <b-card-text>
+      You can search by providing the city or the confirmation code of your reservation
+     </b-card-text>
+     <ReservationFinder />
+     
+   </b-card>
+      <h1>Single Reservation  </h1>
       
       <Reservation v-for="reservation in reservations" :key="reservation.confirmationCode"
       :id="reservation.confirmationCode" :reservation="reservation.city" :picture="reservation.cityImage"/>
@@ -9,7 +16,8 @@
 
 <script>
 import axios from "axios";
-import Reservation from '../components/Reservation'
+import Reservation from '../../components/Reservation';
+  import ReservationFinder from "../../components/ReservationFinder"
 
 export default {
     components: {

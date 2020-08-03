@@ -1,10 +1,11 @@
 <template>
+  <nuxt-link :to="'reservations/' + id">
   <div class="reservation">
     <b-card
       bg-variant="light"
       text-variant="dark"
-      title="Your Reservation"
     >
+    <h2> Your Reservation in {{ reservation }} </h2>
     <b-row>
       <b-col md="6">
         <b-card-img :src= "picture" v-bind:alt="picture"></b-card-img>
@@ -18,6 +19,7 @@
     </b-row>
     </b-card>
   </div>
+  </nuxt-link>
 </template>;
 
 <script>

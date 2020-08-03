@@ -40,20 +40,20 @@
     sans-serif;
   display: block;
   font-weight: 300;
-  font-size: 100px;
+  font-size: 10em;
   color: #35495e;
-  letter-spacing: 1px;
+  letter-spacing: 1em;
 }
 
 .subtitle {
   font-weight: 300;
-  font-size: 42px;
+  font-size: 42em;
   color: #526488;
-  word-spacing: 5px;
-  padding-bottom: 15px;
+  word-spacing: 5em;
+  padding-bottom: 15em;
 }
 
 .links {
-  padding-top: 15px;
+  padding-top: 15em;
 }
 </style>
