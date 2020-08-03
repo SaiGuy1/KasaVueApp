@@ -1,20 +1,8 @@
-# kasa
+# Kasa Vue App
 
-## Build Setup
+## Objectives
 
-```bash
-# install dependencies
-$ npm install
+SPA built with Vue + Nuxt using JSONbin.io for API.
+Used Service Workers and Vanilla JS to Create PWA (Even though there is a workbox.js file in the build, workbox was not used)
 
-# serve with hot reload at localhost:3000
-$ npm run dev
-
-# build for production and launch server
-$ npm run build
-$ npm run start
-
-# generate static project
-$ npm run generate
-```
-
-For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).
+Made to be Responsive. Hopefully there are no 'px' instead of 'em' or 'rem'. Tried my best to stay true to using relative lengths

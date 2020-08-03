@@ -1,17 +1,16 @@
 <template>
   <div class="container">
-   <b-card bg-variant="light" text-variant="dark" title="Find Your Reservation">
-     <b-card-text>
-      You can search by providing the city or the confirmation code of your reservation
-     </b-card-text>
-     <ReservationFinder />
-     
-   </b-card>
+  <div>
+      <Reservation v-for="reservation in reservations" :key="reservation.confirmationCode"
+      :id="reservation.confirmationCode" :reservation="reservation.city"/>
+   </div>
   </div>
 </template>
 
 <script>
-  import ReservationFinder from "../components/ReservationFinder"
+
+import axios from "axios";
+import Reservation from '../components/Reservation'
 
   // original check for whether service worker is supported in current browser
   if('serviceWorker' in navigator) {
@@ -24,13 +23,41 @@
     // console.log('Service Worker Supported')
   }
 
-  export default {}
+export default {
+    components: {
+        Reservation
+    },
+    data() {
+        return {
+            reservations: []
+        }
+    },
+    async created() {
+        const config = {
+            headers: {
+                Accept: 'application/json'
+            }
+        }
+    
+
+         try {
+            const res = await axios.get('https://api.jsonbin.io/b/5f2369acdc263a7b80b0b3a5/4', config);
+        
+            console.log(res.data)
+            this.reservations = res.data;
+         } catch (err) {
+            console.log(err)
+         }
+    }
+
+}
 </script>
 
 <style>
 .container {
   margin: 0 auto;
-  min-height: 50vh;
+  margin-top: 10vh;
+  min-height: 10vh;
   display: flex;
   justify-content: center;
   align-items: center;

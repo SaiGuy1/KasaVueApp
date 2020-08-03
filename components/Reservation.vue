@@ -2,21 +2,12 @@
   <nuxt-link :to="'reservations/' + id">
   <div class="reservation">
     <b-card
-      bg-variant="light"
+      bg-variant="white"
       text-variant="dark"
     >
-    <h2> Your Reservation in {{ reservation }} </h2>
-    <b-row>
-      <b-col md="6">
-        <b-card-img :src= "picture" v-bind:alt="picture"></b-card-img>
-      </b-col>
-      <b-col md="6">
-      <b-card-text>
-        <p>Reservation City: {{ reservation }}</p>
-        <p>Confirmation Code: {{ id }}</p>
-      </b-card-text>
-      </b-col>
-    </b-row>
+    
+    <h2> {{ reservation }} </h2>
+        <p><b> Confirmation Code </b> <br> #{{ id }}</p>
     </b-card>
   </div>
   </nuxt-link>
@@ -25,7 +16,7 @@
 <script>
 export default {
     name: 'Reservation',
-    props: ['reservation', 'id', 'picture']
+    props: ['reservation', 'id']
 }
 </script>
 
