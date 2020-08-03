@@ -29,6 +29,7 @@
 <script>
 import axios from 'axios';
 import Reservation from '../../../components/Reservation';
+
 export default {
   data() {
       return {
@@ -52,6 +53,8 @@ export default {
             console.log(res.data)
 
             let dataObject = res.data;
+
+            console.log(navigator.connection)
 
 
             for (let i = 0; i < dataObject.length; i++){ 
