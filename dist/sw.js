@@ -1,32 +1,49 @@
-importScripts('https://cdn.jsdelivr.net/npm/workbox-cdn@4.3.1/workbox/workbox-sw.js')
+// THIS FILE SHOULD NOT BE VERSION CONTROLLED
+const cacheName = 'v1';
 
-// --------------------------------------------------
-// Configure
-// --------------------------------------------------
+const cacheAssets = [
+    '/Reservations/AAAAAA/index.vue'
+]
 
-// Set workbox config
-workbox.setConfig({
-  "debug": false
+// Call Install Event
+self.addEventListener('install', (e) => {
+    console.log('Service Worker: Installed');
+
+    e.waitUntil(
+        caches
+            .open(cacheName)
+            .then(cache => {
+                console.log('Service Worker: Caching Files...');
+                cache.addAll(cacheAssets);
+            })
+            .then(() => self.skipWaiting())
+    )
+});
+
+
+// Call Activate Event
+self.addEventListener('activate', (e) => {
+    console.log('Service Worker: Activated');
+
+    // Remove unwanted caches 
+    e.waitUntil(
+        caches.keys().then(cacheNames => {
+            return Promise.all(
+              cacheNames.map(cache => {
+                  if (cache !== cacheName) {
+                      console.log('Service Worker: Clearing Old Cache');
+                      return caches.delete(cache)
+                  }
+              })
+            )
+        })
+    );
 })
 
-// Start controlling any existing clients as soon as it activates
-workbox.core.clientsClaim()
-
-// Skip over the SW waiting lifecycle stage
-workbox.core.skipWaiting()
-
-workbox.precaching.cleanupOutdatedCaches()
-
-// --------------------------------------------------
-// Precaches
-// --------------------------------------------------
-
-// Precache assets
-
-// --------------------------------------------------
-// Runtime Caching
-// --------------------------------------------------
-
-// Register route handlers for runtimeCaching
-workbox.routing.registerRoute(new RegExp('/_nuxt/'), new workbox.strategies.CacheFirst ({}), 'GET')
-workbox.routing.registerRoute(new RegExp('/'), new workbox.strategies.NetworkFirst ({}), 'GET')
+// Call Fetch Event
+self.addEventListener('fetch', e => {
+    console.log('Service Worker: Fetching');
+    e.respondWith(
+        fetch(e.request).catch(() => caches.match(e.request))
+    )
+})
