@@ -50,7 +50,7 @@ export default {
              // endpoint would have a search parameter using ${this.route.params.id} if I was to use an actual API
 
             const res = await axios.get('https://api.jsonbin.io/b/5f2369acdc263a7b80b0b3a5/4', config);
-            console.log(res.data)
+            console.log(res)
 
             let dataObject = res.data;
 
@@ -66,6 +66,7 @@ export default {
 
          } catch (err) {
             console.log(err)
+            console.log('____________________')
          }
   }
 }
